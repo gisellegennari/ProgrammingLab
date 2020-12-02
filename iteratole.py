@@ -1,18 +1,17 @@
-class MyNumbers:
-  def __iter__ (self):
-    self.a = 1
-    return self
-    
-  def __netx__ (self):
-    x = self.a
-    self.a += 1
-    return x
-   
-myclass = MyNumbers()
-myiter = iter(myclass)
+class Frutta:
+  def __init__(self, frutta):
+    self.frutta = frutta
 
-print (next(myiter))
-print (next(myiter))
-print (next(myiter))
-print (next(myiter))
-print (next(myiter))
+    #test o next, è solo il nome della funzione attuale, purchè poi lo cambio anche giu
+  def test(self):
+    myit = iter(self.frutta)
+    print(next(myit))
+    print(next(myit))
+    print(next(myit))
+    print(next(myit))
+    print(next(myit))
+    print(next(myit))
+
+pippo = Frutta("banana")
+#test o next
+pippo.test()
