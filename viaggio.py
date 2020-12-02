@@ -26,12 +26,14 @@ class VacanzaInvernale:
     def __init__(self, skipass, impianti_sciistici):
     
      self.skipass = skipass
-     self.impianti_sciistici = impianti.sciistici
+     self.impianti_sciistici = impianti_sciistici
     
     def costo_aggiuntivo(self, luogo, percentuale):
       self.luogo = luogo
       self.percentuale = percentuale
-
+    
+    def stampa(self):
+      print(self.luogo, self.percentuale)
 
 class VacanzaEstiva:
     def __init__(self, tragitto, escursioni_marine):
@@ -42,27 +44,39 @@ class VacanzaEstiva:
     def costo_aggiuntivo(self, escursioni_coppia):
       self.escursioni_coppia = escursioni_coppia
    
+    def stampa(self):
+     print(self.escursioni_marine)
+
+
 class Azienda:
     def __init__(self, denominazione, responsabile_aziendale_viaggio):
     
       self.denominazione = denominazione
-      self.responsabile_aziendale_viaggio = viaggio.responsabile_viaggio
+      self.responsabile_aziendale_viaggio = responsabile_aziendale_viaggio
     
-    def guadagno(self, costo):
-        self.costo = costo - 47/100
-        print("Costo totale: ", self.costo)
+    def guadagno(self):
+        self.costo = 10 - 47/100
+        #print("Costo totale: ", self.costo)
+        return(self.costo)
         
     
 viaggio1 = Viaggio("Voyage", "10/11/2021", "17/11/2021", "San Paolo", "Grand Hotel", "1200€", "12", "Pippo Oppip")
 viaggio1.stampa()
-#winter = VacanzaInvernale("skipass", "impianti_sciistici")
-#Cortina = costo_aggiuntivo(skipass + 15/100)
-#San Mortiz = costo_aggiuntivo(skipass + 10/100)
-#Generico = costo_aggiuntivo(skipass + 5/100)
-#winter.stampa()
-#summer = VacanzaEstiva("tragitto", "Deep Diving")
-#escursioni_coppia = costo_aggiuntivo(costo.Azienda + 10/100)
-    
 
-    
-    
+winter = VacanzaInvernale("skipass", "impianti_sciistici")
+winter.costo_aggiuntivo("Cortina", "+15%")
+winter.stampa()
+
+winter2 = VacanzaInvernale("skipass", "impianti_sciistici")
+winter2.costo_aggiuntivo("San Mortiz", "+10%")
+winter2.stampa()
+
+winter3 = VacanzaInvernale("skipass", "impianti_sciistici")
+winter3.costo_aggiuntivo("Generico", "+5%")
+winter3.stampa()
+
+#societa = Azienda("GiselleS.P.A", "Arcangelo")
+
+summer = VacanzaEstiva("tragitto", "Deep Diving")
+summer.costo_aggiuntivo("escursioni_coppia + 10%")
+summer.stampa()  
